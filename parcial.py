@@ -4,9 +4,7 @@ data= date.today()
 
 hj= data.strftime('%d/%m')
 
-
-#---------------------------
-
+#------------------------
 
 meta= input('Qual é a meta de hoje? ')
 
@@ -17,6 +15,14 @@ except ValueError:
 else:
     meta= float(meta)
 
+metad= input('Qual é a meta desafio de hoje? ')
+
+try:
+    metad= float(metad)
+except ValueError:
+    metad= 0
+else:
+    metad= float(metad)
 
 mc= input('E a meta de pares? ')
 
@@ -30,144 +36,52 @@ else:
 
 #---------------------------
 
-
-V1= input('Quanto Vendedor 1 vendeu? ')
-
+Vendas = input('Quanto Vendemos? ')
 try:
-    V1= float(V1)
+    Vendas = float(Vendas)
 except ValueError:
-    V1 = 0.0
+    Vendas = float(0)
 else:
-    V1 = float(V1)
-    
-
-V2= input('Quanto Vendedor 2 vendeu? ')
-
-try:
-    V2= float(V2)
-except ValueError:
-    V2 = 0.0
-else:
-    V2 = float(V2)
-    
-    
-V3= input('Quanto Vendedor 3 vendeu? ')
-
-try:
-    V3= float(V3)
-except ValueError:
-    V3= 0.0
-else:
-    V3= float(V3)
-    
-V4= input('Quanto Vendedor 4 vendeu? ')
-
-try:
-    V4= float(V4)
-except ValueError:
-    V4= 0.0
-else:
-    V4= float(V4)
-    
-V5= input('Quanto Vendedor 5 vendeu? ')
-
-try:
-    V5= float(V5)
-except ValueError:
-    V5 = 0.0
-else:
-    V5 = float(V5)
+    Vendas = float(Vendas)
     
 
 #---------------------------
 
 
-voucher= input('Temos Venda voucher? 1 = sim ')
+voucher = input('Quanto vendemos voucher? ')
 
-if voucher== str(1):
-        V1V= input('Vouchers Vendedor 1: ')
-        try:
-                V1V= float(V1V)
-        except ValueError:
-                V1V= 0.0
-        else:
-                V1V= float(V1V)
-
-
-
-        V2V= input('Vouchers Vendedor 2: ')
-        try:
-                V2V= float(V2V)
-        except ValueError:
-                V2V= 0.0
-        else:
-                V2V= float(V2V)
-
-
-
-        V3V= input('Vouchers Vendedor 3: ')
-        try:
-                V3V= float(V3V)
-        except ValueError:
-                V3V= 0.0
-        else:
-                V3V= float(V3V)
-
-
-
-        V4V= input('Vouchers Vendedor 4: ')
-        try:
-                V4V= float(V4V)
-        except ValueError:
-                V4V= 0.0
-        else:
-                V4V= float(V4V)
-
-
-
-        V5V= input('Vouchers Vendedor 5: ')
-        try:
-                V5V= float(V5V)
-        except ValueError:
-                V5V= 0.0
-        else:
-                V5V= float(V5V)
+try:
+    voucher = float(voucher)
+except ValueError:
+    voucher = float(0)
+else:
+    voucher = float(voucher)
 
 
 #---------------------------
 
 
-link= input('Temos Venda Link? 1 = sim ')
+link = input('Temos Venda Link? 1 = sim ')
 
-if link== str(1):
+if link == str(1):
         VendasLink = input('Quanto Vendemos em Link: ')
         try:
-                VendasLink= float(VendasLink)
+                VendasLink = float(VendasLink)
         except ValueError:
-                VendasLink= 0.0
+                VendasLink = 0.0
         else:
-                VendasLink= float(VendasLink)
+                VendasLink = float(VendasLink)
 
 if link != str(1):
-    VendasLink= 0.0
+    VendasLink = 0.0
 
 
 #---------------------------
 
 
-rct= (V1+V2+V3+V4+V5)
-
-mta= 0
-
-
-vchrs= 0.0
-
-if voucher== str(1):
-    vchrs= (V1V+V2V+V3V+V4V+V5V)
-
+rct= (Vendas)
 
 #---------------------------
-
 
 clçds= input('Quantos calçados foram vendidos? ')
 
@@ -215,15 +129,8 @@ else:
     pa = float(pa)
     
 
-if vchrs != 0.0:
-    
-    V1= V1+V1V
-    V2= V2+V2V
-    V3= V3+V3V
-    V4= V4+V4V
-    V5= V5+V5V
 
-Total= (V1+V2+V3+V4+V5)
+Total= (Vendas + voucher)
 
 if meta != 0:
     mta= int((Total/meta)*100)
@@ -240,36 +147,15 @@ print('          *Loja* \n \n')
 print('Meta: R${}'.format(meta))
 print('Meta de Pares: ',mc, '\n')
 
+print('*META DESAFIO: R$ ',metad, '\n')
+
 print('Receita: R${}'.format(rct))
 print('Bolsas: ',bolsas)
 print('Pares: ',clçds)
 print('Acessórios: ',acessorios)
 print('PA: {}'.format(pa))
 print('Ticket Médio: R${}'.format(tm))
-print('Vouchers: R$:{}'.format(vchrs))
+print('Vouchers: R$:{}'.format(voucher))
 print('Vendas Link: R${}'.format(VendasLink))
 print('Meta: {}%'.format(mta))
 print('\n\n*Total: R${}*\n\n'.format(Total))
-
-
-#---------------------------
-
-
-if V1 != 0.0:
-    print('Vendedor 1: R${}'.format(V1))
-
-
-if V2 != 0.0:
-    print('Vendedor 2: R${}'.format(V2))
-    
-
-if V3 != 0.0:
-    print('Vendedor 3: R${}'.format(V3))
-
-
-if V4!= 0.0:
-    print('Vendedor 4: R${}'.format(V4))
-
-
-if V5 != 0.0:
-    print('Vendedor 5: R${}'.format(V5))
