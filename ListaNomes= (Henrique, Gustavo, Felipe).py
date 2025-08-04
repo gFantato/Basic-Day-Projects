@@ -1,13 +1,41 @@
-ListaNomes= list
+ListNames = ['1', '2', '3', '4', '5', '6', '7']
 
 i= int(0)
 
-nome= input(str('Digite o nome da pessoa: '))
+name= input(str('Type a name: '))
 
-while nome!=  str(''):
+while name !=  str(''):
     
-     ListaNomes[i] = nome
-     i = int(i + 1)
-     nome= input(str('Digite o nome da pessoa: '))
+     ListNames.append (name)
+     i = (i + 1)
+     name= input(str('Type a name: '))
 
-print(ListaNomes)
+print(ListNames)
+
+ListNames.sort()
+
+print(ListNames)
+
+ListNames.sort(reverse=True)
+
+print(ListNames)
+
+x = 0
+
+while x >= 0 and  x <= len(ListNames):
+     
+     x= input(str('Check position: '))
+     
+     try:
+          x = int(x)
+     except ValueError:
+          x = (0)
+     else:
+          x = int(x)
+     
+     try:
+          ListNames[(x - 1)]
+     except IndexError:
+          x = -1
+     else:
+          print(ListNames[(x - 1)])
